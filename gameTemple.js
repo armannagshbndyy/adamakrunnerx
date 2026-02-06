@@ -3,11 +3,17 @@ document.body.appendChild(canvas);
 const ctx = canvas.getContext('2d');
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const h = window.innerHeight;
+    const w = window.innerWidth;
+
+    canvas.width = w;
+    canvas.height = h;
 }
+
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
+window.addEventListener('orientationchange', resizeCanvas);
+
 
 // -----------------------------
 // بارگذاری فریم‌های دویدن
