@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منوی بازی</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- فونت‌های ایرانی برای زیبایی بیشتر -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
@@ -177,6 +179,88 @@ a{
     text-decoration: none;
     color: inherit;
 }
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #game-menu,
+    #settings-panel {
+        width: 94vw;
+        max-height: 94dvh;
+        padding: 20px 18px;
+        border-radius: 12px;
+        overflow-y: auto;
+    }
+
+    .title {
+        font-size: 7vw;
+        margin-bottom: 15px;
+    }
+
+    .settings-title {
+        font-size: 6vw;
+    }
+
+    .menu-btn {
+        padding: 12px;
+        font-size: 4.2vw;
+        margin: 8px 0;
+    }
+
+    /* تنظیمات داخل پنل */
+    .setting-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        text-align: right;
+    }
+
+    .setting-group label {
+        margin-bottom: 4px;
+    }
+
+    #volume-slider {
+        width: 100%;
+        margin: 0;
+    }
+
+    .quality-selector {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .quality-btn {
+        flex: 1;
+        font-size: 3.8vw;
+        padding: 8px;
+    }
+}
+
+/* بهبود حالت افقی موبایل */
+@media (max-height: 500px) and (orientation: landscape) {
+
+    #game-menu,
+    #settings-panel {
+        max-height: 90vh;
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 5vw;
+        margin-bottom: 10px;
+    }
+
+    .menu-btn {
+        padding: 10px;
+        margin: 6px 0;
+    }
+}
+
     </style>
 </head>
 <body>
