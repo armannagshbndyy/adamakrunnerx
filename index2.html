@@ -1,0 +1,133 @@
+
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OrkidiqPlay — خانه</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loader">
+    <div class="loader-inner">
+  
+        <!-- اسم سایت بالا -->
+        <div class="loader-title">OrkidiqPlay</div>
+  
+        <!-- اسپینر وسط -->
+        <div class="spinner"></div>
+  
+        <!-- متن در حال بارگیری پایین -->
+        <div class="loader-text">در حال بارگیری...</div>
+  
+    </div>
+  </div>
+  
+
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">OrkidiqPlay</div>
+      <nav class="main-nav">
+        <a href="./home.html">خانه</a>
+        <a href="./online.html">بازی‌های آنلاین</a>
+        <a href="./games.html">بازی‌ها</a>
+        <a href="./about.html">درباره ما</a>
+      </nav>
+      <button class="menu-btn" aria-label="باز کردن منو">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO / HOME -->
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <h1>به OrkidiqPlay خوش آمدید</h1>
+        <p>مرجع بهترین بازی‌های آنلاین — نسخه‌های اندروید و ویندوز. وارد دنیای گرافیکی و جذاب ما شوید.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#online">بازی‌های آنلاین</a>
+          <a class="btn ghost" href="#games">دانلود بازی‌ها</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONLINE GAMES -->
+    <section id="online" class="section">
+      <div class="container">
+        <h2>بخش بازی‌های آنلاین</h2>
+        <p class="muted">لیست سریع بازی‌های آنلاین گرافیکی — قابل بازی در مرورگر</p>
+        <div class="grid games-grid">
+          <!-- نمونه کارت بازی -->
+          <article class="game-card">
+            <div class="thumb"></div>
+            <h3>Orbit Rush</h3>
+            <p>یک بازی اکشن کوتاه با گرافیک فانتزی.</p>
+            <div class="tags"><span>آنلاین</span><span>پلی‌بروزر</span></div>
+            <a class="btn small" href="./temple.html" target="_blank" style="margin-top: 10px;">شروع بازی</a>
+          </article>
+          <article class="game-card">
+            <div class="thumb"><img width="500" height="150" src="./adamkruner.png" alt="Admak game logo title" /></div> 
+            <h3>Admak RunnerX</h3>
+            <p>دویدن، پرش و جمع‌آوری امتیازها.</p>
+            
+            <div class="tags"><span>آنلاین</span><span>چالشی</span></div>
+            <a class="btn small" href="./temple.html" target="_blank" style="margin-top: 10px;">شروع بازی</a>
+          </article>
+          <!-- کارت‌های بیشتر به‌صورت داینامیک بعداً اضافه می‌شود -->
+        </div>
+      </div>
+    </section>
+
+    <!-- GAMES (Android / Windows) -->
+    <section id="games" class="section pb-large">
+      <div class="container">
+        <h2>دانلود بازی‌ها</h2>
+        <p class="muted">نسخه‌ها برای اندروید و ویندوز</p>
+        <div class="split">
+          <div class="card os-card">
+            <h3>اندروید</h3>
+            <p>نسخه APK — حجم کم، نصب امن.</p>
+            <a class="btn small" href="#">بیشتر</a>
+          </div>
+          <div class="card os-card">
+            <h3>ویندوز</h3>
+            <p>نسخه EXE / Installer — اجرا روی ویندوز 10/11.</p>
+            <a class="btn small" href="#">بیشتر</a>
+          </div>
+        </div>        
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <strong>OrkidiqPlay</strong> — همهٔ حقوق محفوظ است.</p>
+      <small class="muted">تماس: armannqshbndy54@gmail.com</small>
+    </div>
+  </footer>
+
+  <!-- کوچک‌ترین JS فقط برای لودینگ و منوی موبایل -->
+  <script>
+
+  setTimeout(() => {
+    document.querySelector(".loader").classList.add("loaded");
+  }, 2000);
+
+
+
+    // mobile menu toggle
+    const btn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('.main-nav');
+    btn && btn.addEventListener('click', ()=> nav.classList.toggle('open'));
+  </script>
+</body>
+</html>
+
+
+
+
+
+

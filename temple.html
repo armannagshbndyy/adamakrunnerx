@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>Admak RunnerX</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{
+        font-family: 'Vazirmatn', sans-serif;
+  }
+  body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #0d0714 0%, #130a22 100%);
+        font-family: 'Vazirmatn', sans-serif;
+  }
+
+  canvas{
+    display:block;
+    width:100vw;
+    height:100vh;
+    border: 2px solid #a14bd6;
+    border-radius:12px;
+    background: linear-gradient(180deg, #111 0%, #222 100%);
+  }
+
+  /* LOADER */
+  .loader{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg, rgba(10,6,14,0.9), rgba(20,8,30,0.9));
+    z-index:9999;
+    transition:opacity .6s ease;
+  }
+  .loader.loaded{
+    opacity:0;
+    pointer-events:none;
+  }
+  .loader-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px; /* فاصله بین آیتم‌ها */
+  }
+  .loader-title{
+    font-size:26px;
+    font-weight:900;
+    color:#a14bd6;
+    text-shadow:0 4px 18px rgba(161,75,214,0.5);
+    margin-bottom:6px;
+  }
+</style>
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader">
+    <div class="loader-inner">
+      <div class="loader-title">adamakrunner</div>
+      <div class="spinner"></div>
+      <div class="loader-text">در حال بارگیری...</div>
+    </div>
+  </div>
+
+  <!-- بازی توسط game.js ساخته می شود -->
+
+  <script src="./gameTemple.js"></script>
+
+  <script>
+    // لودینگ فقط 2 ثانیه
+    setTimeout(() => {
+      document.querySelector(".loader").classList.add("loaded");
+    }, 2000);
+  </script>
+</body>
+</html>

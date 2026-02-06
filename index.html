@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منوی بازی</title>
+
+    <!-- فونت‌های ایرانی برای زیبایی بیشتر -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* تنظیمات اولیه و فونت */
+
+
+:root {
+    --primary-color: #4CAF50; /* سبز اصلی */
+    --secondary-color: #FFC107; /* زرد/طلایی برای دکمه‌های فرعی */
+    --background-dark: #1a1a2e; /* سرمه‌ای تیره */
+    --background-light: #2c2c54; /* بنفش تیره */
+    --text-color: #e0e0e0;
+    --border-color: #3a3a6b;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-light) 100%);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* استایل کلی منو */
+#game-menu, #settings-panel {
+    background: rgba(30, 30, 50, 0.95);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 40px 60px;
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 50px rgba(76, 175, 80, 0.3);
+    text-align: center;
+    width: 400px;
+    min-height: 350px;
+    transition: opacity var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out;
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* عنوان */
+.title {
+    font-size: 2.8em;
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+/* دکمه‌ها */
+.menu-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    margin: 15px 0;
+    font-size: 1.1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.1s, box-shadow var(--transition-speed);
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.secondary-btn {
+    background-color: var(--border-color);
+    color: var(--text-color);
+    box-shadow: 0 5px 15px rgba(58, 58, 107, 0.4);
+}
+
+.danger-btn {
+    background-color: #dc3545;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+.save-btn {
+    background-color: #007bff;
+    color: #fff;
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* افکت Hover روی دکمه‌ها */
+.menu-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.menu-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px var(--shadow-color);
+}
+
+/* ------------------ استایل پنل تنظیمات ------------------ */
+.settings-title {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.setting-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+    margin-bottom: 15px;
+}
+
+.setting-group label {
+    font-size: 1.05em;
+    min-width: 100px;
+    text-align: right;
+}
+
+/* اسلایدر صدا */
+#volume-slider {
+    flex-grow: 1;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+/* انتخابگر کیفیت */
+.quality-selector {
+    display: flex;
+    gap: 5px;
+}
+
+.quality-btn {
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    background: #3a3a6b;
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+.quality-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.quality-btn:not(.active):hover {
+    background-color: #4a4a7b;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+    </style>
+</head>
+<body>
+
+    <div id="game-menu">
+        <h1 class="title">Adamak RunnerX</h1>
+        
+        <div class="menu-buttons">
+            <button  class="menu-btn primary-btn"><a href="./temple.html">شروع بازی</a></button>
+            <button id="settings-btn" class="menu-btn secondary-btn">تنظیمات</button>
+            <button id="exit-btn" class="menu-btn danger-btn">خروج</button>
+        </div>
+    </div>
+
+    <!-- بخش تنظیمات (در ابتدا مخفی است) -->
+    <div id="settings-panel" class="hidden">
+        <h2 class="settings-title">تنظیمات بازی</h2>
+        
+        <div class="setting-group">
+            <label for="volume-slider">صدا:</label>
+            <input type="range" id="volume-slider" min="0" max="100" value="75">
+            <span id="volume-value">75%</span>
+        </div>
+
+        <div class="setting-group">
+            <label>کیفیت گرافیک:</label>
+            <div class="quality-selector">
+                <button class="quality-btn active" data-quality="high">بالا</button>
+                <button class="quality-btn" data-quality="medium">متوسط</button>
+                <button class="quality-btn" data-quality="low">پایین</button>
+            </div>
+        </div>
+        <p>ساخته شده توسط آرمان نقشبندی.</p>
+        <button id="save-settings-btn" class="menu-btn save-btn">ذخیره و بازگشت</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // انتخابگرهای اصلی
+    const menuPanel = document.getElementById('game-menu');
+    const settingsPanel = document.getElementById('settings-panel');
+    const startBtn = document.getElementById('start-btn');
+    const settingsBtn = document.getElementById('settings-btn');
+    const exitBtn = document.getElementById('exit-btn');
+    const saveSettingsBtn = document.getElementById('save-settings-btn');
+    
+    // تنظیمات
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeValueSpan = document.getElementById('volume-value');
+    const qualityButtons = document.querySelectorAll('.quality-btn');
+
+    // -------------------- توابع نمایش/پنهان‌سازی --------------------
+
+    function showPanel(panelToShow, panelToHide) {
+        panelToHide.classList.add('hidden');
+        panelToHide.style.opacity = '0';
+        panelToHide.style.transform = 'scale(0.9)';
+        
+        // استفاده از setTimeout برای اطمینان از اجرای انیمیشن پنهان شدن
+        setTimeout(() => {
+            panelToShow.classList.remove('hidden');
+            // دوباره فراخوانی برای اجرای انیمیشن نمایش
+            requestAnimationFrame(() => {
+                panelToShow.style.opacity = '1';
+                panelToShow.style.transform = 'scale(1)';
+            });
+        }, 100); 
+    }
+
+    // -------------------- مدیریت کلیک‌ها --------------------
+
+    // ۱. دکمه شروع بازی
+
+
+    // ۲. دکمه تنظیمات
+    settingsBtn.addEventListener('click', () => {
+        showPanel(settingsPanel, menuPanel);
+    });
+
+    // ۳. دکمه خروج
+    exitBtn.addEventListener('click', () => {
+        if (confirm('آیا مطمئنید که می‌خواهید از بازی خارج شوید؟')) {
+            // در محیط مرورگر واقعی، این دستور مرورگر را می‌بندد. 
+            // برای محیط بازی (مثل اپلیکیشن)، این باید تابع خروج از برنامه باشد.
+            window.close(); 
+            console.log('خروج از بازی.');
+        }
+    });
+
+    // ۴. دکمه ذخیره تنظیمات و بازگشت
+    saveSettingsBtn.addEventListener('click', () => {
+        // در اینجا می‌توانید تنظیمات فعلی را ذخیره کنید (مثلاً در LocalStorage مرورگر)
+        console.log('تنظیمات ذخیره شدند.');
+        showPanel(menuPanel, settingsPanel);
+    });
+
+    // -------------------- منطق تنظیمات --------------------
+
+    // به‌روزرسانی نمایشگر حجم صدا
+    volumeSlider.addEventListener('input', () => {
+        const volume = volumeSlider.value;
+        volumeValueSpan.textContent = `${volume}%`;
+        // در اینجا می‌توانید با استفاده از Web Audio API یا تگ های صوتی، صدای بازی را تنظیم کنید.
+        console.log(`Volume set to: ${volume}%`);
+    });
+
+    // مدیریت انتخاب کیفیت
+    qualityButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // غیرفعال کردن حالت فعال از همه دکمه‌ها
+            qualityButtons.forEach(btn => btn.classList.remove('active'));
+            // فعال کردن دکمه کلیک شده
+            button.classList.add('active');
+            const quality = button.getAttribute('data-quality');
+            console.log(`Graphics quality set to: ${quality}`);
+        });
+    });
+
+    // مقدار اولیه نمایشگر صدا
+    volumeValueSpan.textContent = `${volumeSlider.value}%`;
+});
+
+    </script>
+</body>
+</html>
