@@ -4,28 +4,38 @@
 <meta charset="UTF-8">
 <title>Admak RunnerX</title>
 <link rel="stylesheet" href="styles.css">
+ <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="screen-orientation" content="landscape">
+<meta name="orientation" content="landscape">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  *{
-        font-family: 'Vazirmatn', sans-serif;
-  }
-  body{
-    margin:0;
-    padding:0;
-    overflow:hidden;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #0d0714 0%, #130a22 100%);
-        font-family: 'Vazirmatn', sans-serif;
-  }
+  html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
-  canvas{
-    display:block;
-    width:100vw;
-    height:100vh;
-    border: 2px solid #a14bd6;
-    border-radius:12px;
-    background: linear-gradient(180deg, #111 0%, #222 100%);
-  }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+
+  /* کل بازی دیده میشه */
+  object-fit: contain;
+
+  background: linear-gradient(180deg, #111 0%, #222 100%);
+  border: none;
+}
 
   /* LOADER */
   .loader{
@@ -76,6 +86,19 @@
     setTimeout(() => {
       document.querySelector(".loader").classList.add("loaded");
     }, 2000);
+<script>
+  function lockLandscape() {
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock("landscape").catch(() => {});
+    }
+  }
+
+  // روی اولین لمس کاربر
+  document.addEventListener("touchstart", lockLandscape, { once: true });
+  document.addEventListener("click", lockLandscape, { once: true });
+</script>
+   
   </script>
 </body>
 </html>
+
